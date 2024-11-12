@@ -2,6 +2,14 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
+sequelize.sync({ alter: true })
+.then(() => {
+    console.log("BD sincronizado");
+})
+.catch(error => {
+    console.log("Erro!");
+});
+
 // ROTAS //
 
 app.get('/', (req, res) => {
